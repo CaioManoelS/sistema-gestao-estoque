@@ -11,8 +11,21 @@ def cadastrar_produto(nome, quantidade):
     print("Produto cadastrado com sucesso!")
 
 def listar_produtos():
+    print("\n--- PRODUTOS CADASTRADOS ---")
     for produto in produtos:
         print(produto)
 
+def consultar_estoque(nome):
+    for produto in produtos:
+        if produto["nome"] == nome:
+            print("Quantidade disponível:",
+                  produto["quantidade"])
+            return
+
+    print("Produto não encontrado.")
+
 cadastrar_produto("Teclado", 10)
+cadastrar_produto("Mouse", 15)
+
 listar_produtos()
+consultar_estoque("Teclado")
